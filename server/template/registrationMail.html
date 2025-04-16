@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Welcome Email</title>
+		<style>
+			body {
+				font-family: "Helvetica Neue", sans-serif;
+				background-color: #f4f4f4;
+				margin: 0;
+				padding: 0;
+			}
+			.container {
+				background-color: #ffffff;
+				max-width: 600px;
+				margin: 40px auto;
+				border-radius: 8px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+				padding: 30px;
+			}
+			.header {
+				text-align: center;
+				padding-bottom: 20px;
+			}
+			.header h1 {
+				color: #2b84ea;
+				margin: 0;
+			}
+			.content {
+				font-size: 16px;
+				color: #344a6c;
+				line-height: 1.6;
+			}
+			.footer {
+				text-align: center;
+				font-size: 14px;
+				color: #818597;
+				margin-top: 40px;
+			}
+			.button {
+				display: inline-block;
+				margin-top: 20px;
+				padding: 12px 20px;
+				background-color: #2b84ea;
+				color: #ffffff;
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Welcome Onboard, {{name}} 🎉</h1>
+			</div>
+			<div class="content">
+				<p>Hi {{name}},</p>
+				<p>
+					Thank you for joining our platform! We're thrilled to have you as part
+					of our community.
+				</p>
+				<p>
+					You now have access to a wide range of features designed to make your
+					experience smooth and productive.
+				</p>
+				<p>
+					If you ever need help, feel free to reach out to our support team
+					anytime.
+				</p>
+				<p>
+					<a class="button" href="{{clientUrl}}">Get Started</a>
+				</p>
+				<p>Best regards,<br />The Team</p>
+			</div>
+			<div class="footer">
+				<p>&copy; {{year}} Our Platform. All rights reserved.</p>
+			</div>
+		</div>
+	</body>
+</html>
