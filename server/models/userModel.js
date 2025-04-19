@@ -62,11 +62,31 @@ const userSchema = new mongoose.Schema(
 			type: Number,
 			default: 0,
 		},
+		// add 2fa
+		is2faActive: {
+			type: Boolean,
+			default: false,
+		},
+		twoFactorSecret: {
+			type: String,
+			default: null,
+		},
+		twoFactorSecretExpireAt: {
+			type: Number,
+			default: 0,
+		},
+		twoFactorRecoveryCode: {
+			type: [String],
+			default: [],
+		},
 	},
 	{
 		timestamps: true,
 	}
 );
+
+// initialize indexes for faster lookups
+userSchema.index({ googleId: 1 }, { sparse: true });
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema); // if the model is already created, use that model, otherwise create a new one
 

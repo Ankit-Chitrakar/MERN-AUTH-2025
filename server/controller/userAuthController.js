@@ -157,6 +157,15 @@ const login = async (req, res) => {
 			});
 		}
 
+		if (user.is2faActive) {
+			return res.status(200).json({
+				success: true,
+				message:
+					"Two-Factor Authentication (2FA) is enabled for your account. Please provide the TOTP code from your authenticator app to complete the login process.",
+				userId: user._id,
+			});
+		}
+
 		setAuthCookie(res, user); // set the auth cookie with the user details
 
 		// send the response
@@ -167,6 +176,10 @@ const login = async (req, res) => {
 				id: user._id,
 				name: user.name,
 				email: user.email,
+				googleId: user.googleId,
+				profilePicture: user.profilePicture,
+				isAccountVerified: user.isAccountVerified,
+				is2faActive: user.is2faActive,
 			},
 		});
 	} catch (err) {
@@ -202,10 +215,7 @@ const logout = async (req, res) => {
 
 const sendEmailVerificationOtp = async (req, res) => {
 	try {
-		console.log("sendEmailVerificationOtp called");
 		const { userId, email, isAccountVerified } = req.user; // userId and email and isAccountVerified are coming from the token
-
-		console.log(userId, email, isAccountVerified);
 
 		// field Validation
 		if (!userId || !email) {

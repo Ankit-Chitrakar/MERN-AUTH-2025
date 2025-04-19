@@ -12,6 +12,7 @@ const setAuthCookie = (res, user) => {
 				email: user.email,
 				profilePicture: user?.profilePicture || null,
 				isAccountVerified: user?.isAccountVerified || false,
+				is2faActive: user?.is2faActive || false,
 			},
 		},
 		process.env.JWT_SECRET,

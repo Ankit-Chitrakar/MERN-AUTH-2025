@@ -17,8 +17,6 @@ const handleGoogleCallback = async (req, res) => {
 	try {
 		const { code } = req.query;
 
-		console.log("code => ", code);
-
 		// check the code is present or not
 		if (!code) {
 			return res.status(400).json({
@@ -44,8 +42,6 @@ const handleGoogleCallback = async (req, res) => {
 			}
 		);
 
-		console.log("token respobse => ", tokenResponse.data);
-
 		const { access_token } = tokenResponse.data;
 		// check the access token is present or not
 		if (!access_token) {
@@ -64,8 +60,6 @@ const handleGoogleCallback = async (req, res) => {
 				},
 			}
 		);
-
-		console.log("google user response => ", googleUserResponse.data);
 
 		const { id, email, name, picture } = googleUserResponse.data;
 

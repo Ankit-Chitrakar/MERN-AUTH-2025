@@ -25,7 +25,6 @@ const isLoggedIn = (req, res, next) => {
 
 		// add this toekn details to req.user
 		req.user = tokenDetails.user;
-		console.log(req.user);
 
 		next();
 	} catch (err) {
