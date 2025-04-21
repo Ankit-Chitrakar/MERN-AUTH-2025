@@ -410,6 +410,7 @@ const getMyInfo = async (req, res) => {
 				email: userDetails.email,
 				profilePicture: userDetails.profilePicture,
 				isAccountVerified: userDetails.isAccountVerified,
+				is2faActive: userDetails.is2faActive,
 				createdAt: `${Date(userDetails.createdAt).toLocaleString()}`,
 			},
 		});
